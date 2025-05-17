@@ -29,8 +29,8 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
+            { 'williamboman/mason.nvim', tag = 'v1.11.0' },
+            { 'williamboman/mason-lspconfig.nvim', tag = 'v1.32.0'},
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },

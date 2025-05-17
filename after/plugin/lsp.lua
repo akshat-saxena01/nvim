@@ -6,12 +6,17 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'ts_ls', 'gopls', 'rust_analyzer', 'eslint' },
+    ensure_installed = { 'clangd', 'ts_ls', 'gopls', 'rust_analyzer', 'eslint' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
+        end,
+        clangd = function()
+            require('lspconfig').clangd.setup({
+                cmd = { "clangd", "--fallback-style=webkit" },
+            })
         end,
     },
 })
